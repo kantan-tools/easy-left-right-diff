@@ -1,0 +1,1111 @@
+{
+  "name": "easy-left-right-diff",
+  "displayName": "%extension.displayName%",
+  "description": "%extension.description%",
+  "version": "1.0.5",
+  "publisher": "kantan-tools",
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "diff",
+    "compare",
+    "file",
+    "comparison",
+    "left",
+    "right",
+    "比較",
+    "左右"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "colors": [
+      {
+        "id": "easyLeftRightDiff.leftBadge",
+        "description": "%color.leftBadge.description%",
+        "defaults": {
+          "dark": "#4DA3FF",
+          "light": "#0066CC",
+          "highContrast": "#75BEFF",
+          "highContrastLight": "#005FB8"
+        }
+      },
+      {
+        "id": "easyLeftRightDiff.rightBadge",
+        "description": "%color.rightBadge.description%",
+        "defaults": {
+          "dark": "#C586FF",
+          "light": "#7A3DB8",
+          "highContrast": "#D7A7FF",
+          "highContrastLight": "#6F2DA8"
+        }
+      },
+      {
+        "id": "easyLeftRightDiff.leftHighlight",
+        "description": "%color.leftHighlight.description%",
+        "defaults": {
+          "dark": "#8CC7FF",
+          "light": "#004C99",
+          "highContrast": "#FFFFFF",
+          "highContrastLight": "#003D7A"
+        }
+      },
+      {
+        "id": "easyLeftRightDiff.rightHighlight",
+        "description": "%color.rightHighlight.description%",
+        "defaults": {
+          "dark": "#E0B8FF",
+          "light": "#5D238F",
+          "highContrast": "#FFFFFF",
+          "highContrastLight": "#4C167A"
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "easyLeftRightDiff.setLeft",
+        "title": "%command.setLeft.title%",
+        "category": "%command.category%",
+        "icon": "$(arrow-left)"
+      },
+      {
+        "command": "easyLeftRightDiff.compareWithRight",
+        "title": "%command.compareWithRight.title%",
+        "category": "%command.category%",
+        "icon": "$(diff)"
+      },
+      {
+        "command": "easyLeftRightDiff.compareSelectedFiles",
+        "title": "%command.compareSelectedFiles.title%",
+        "category": "%command.category%",
+        "icon": "$(files)"
+      },
+      {
+        "command": "easyLeftRightDiff.changeLeft",
+        "title": "%command.changeLeft.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "easyLeftRightDiff.changeRight",
+        "title": "%command.changeRight.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "easyLeftRightDiff.clearLeft",
+        "title": "%command.clearLeft.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "easyLeftRightDiff.clearRight",
+        "title": "%command.clearRight.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "easyLeftRightDiff.clearAll",
+        "title": "%command.clearAll.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "easyLeftRightDiff.setLeftLabel",
+        "title": "%command.setLeftLabel.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "easyLeftRightDiff.setRightLabel",
+        "title": "%command.setRightLabel.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "easyLeftRightDiff.revealLeft",
+        "title": "%command.revealLeft.title%",
+        "category": "%command.category%",
+        "icon": "$(arrow-left)"
+      },
+      {
+        "command": "easyLeftRightDiff.revealRight",
+        "title": "%command.revealRight.title%",
+        "category": "%command.category%",
+        "icon": "$(arrow-right)"
+      },
+      {
+        "command": "easyLeftRightDiff.openLeft",
+        "title": "%command.openLeft.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "easyLeftRightDiff.openRight",
+        "title": "%command.openRight.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "easyLeftRightDiff.swapSides",
+        "title": "%command.swapSides.title%",
+        "category": "%command.category%",
+        "icon": "$(arrow-swap)"
+      },
+      {
+        "command": "easyLeftRightDiff.switchMode",
+        "title": "%command.switchMode.title%",
+        "category": "%command.category%",
+        "icon": "$(lock)"
+      },
+      {
+        "command": "easyLeftRightDiff.switchToReadonly",
+        "title": "%command.switchToReadonly.title%",
+        "category": "%command.category%",
+        "icon": "$(lock)"
+      },
+      {
+        "command": "easyLeftRightDiff.switchToNormal",
+        "title": "%command.switchToNormal.title%",
+        "category": "%command.category%",
+        "icon": "$(unlock)"
+      },
+      {
+        "command": "easyLeftRightDiff.showInfo",
+        "title": "%command.showInfo.title%",
+        "category": "%command.category%",
+        "icon": "$(info)"
+      },
+      {
+        "command": "easyLeftRightDiff.showAddresses",
+        "title": "%command.showAddresses.title%",
+        "category": "%command.category%",
+        "icon": "$(list-tree)"
+      },
+      {
+        "command": "easyLeftRightDiff.showUsageGuide",
+        "title": "%command.showUsageGuide.title%",
+        "category": "%command.category%",
+        "icon": "$(question)"
+      },
+      {
+        "command": "easyLeftRightDiff.reopenComparison",
+        "title": "%command.reopenComparison.title%",
+        "category": "%command.category%",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "easyLeftRightDiff.endComparison",
+        "title": "%command.endComparison.title%",
+        "category": "%command.category%",
+        "icon": "$(close)"
+      },
+      {
+        "command": "easyLeftRightDiff.copyHunkLeftToRight",
+        "title": "%command.copyHunkLeftToRight.title%",
+        "category": "%command.category%",
+        "icon": "$(arrow-right)"
+      },
+      {
+        "command": "easyLeftRightDiff.copyHunkRightToLeft",
+        "title": "%command.copyHunkRightToLeft.title%",
+        "category": "%command.category%",
+        "icon": "$(arrow-left)"
+      },
+      {
+        "command": "easyLeftRightDiff.copyFileLeftToRight",
+        "title": "%command.copyFileLeftToRight.title%",
+        "category": "%command.category%",
+        "icon": "$(files)"
+      },
+      {
+        "command": "easyLeftRightDiff.copyFileRightToLeft",
+        "title": "%command.copyFileRightToLeft.title%",
+        "category": "%command.category%",
+        "icon": "$(files)"
+      },
+      {
+        "command": "easyLeftRightDiff.undoLastCopy",
+        "title": "%command.undoLastCopy.title%",
+        "category": "%command.category%",
+        "icon": "$(discard)"
+      },
+      {
+        "command": "easyLeftRightDiff.saveLeft",
+        "title": "%command.saveLeft.title%",
+        "category": "%command.category%",
+        "icon": "$(save)"
+      },
+      {
+        "command": "easyLeftRightDiff.saveRight",
+        "title": "%command.saveRight.title%",
+        "category": "%command.category%",
+        "icon": "$(save)"
+      },
+      {
+        "command": "easyLeftRightDiff.nextDifference",
+        "title": "%command.nextDifference.title%",
+        "category": "%command.category%",
+        "icon": "$(arrow-down)"
+      },
+      {
+        "command": "easyLeftRightDiff.showDifferenceSummary",
+        "title": "%command.showDifferenceSummary.title%",
+        "category": "%command.category%",
+        "icon": "$(diff)"
+      },
+      {
+        "command": "easyLeftRightDiff.showRecentComparisons",
+        "title": "%command.showRecentComparisons.title%",
+        "category": "%command.category%",
+        "icon": "$(history)"
+      },
+      {
+        "command": "easyLeftRightDiff.manageRecovery",
+        "title": "%command.manageRecovery.title%",
+        "category": "%command.category%",
+        "icon": "$(archive)"
+      },
+      {
+        "command": "easyLeftRightDiff.manageFileRecovery",
+        "title": "%command.manageFileRecovery.title%",
+        "category": "%command.category%",
+        "icon": "$(history)"
+      },
+      {
+        "command": "easyLeftRightDiff.recoveryExplain",
+        "title": "%command.recoveryExplain.title%",
+        "category": "%command.category%",
+        "icon": "$(info)"
+      },
+      {
+        "command": "easyLeftRightDiff.recoveryRestore",
+        "title": "%command.recoveryRestore.title%",
+        "category": "%command.category%",
+        "icon": "$(history)"
+      },
+      {
+        "command": "easyLeftRightDiff.recoverySaveAs",
+        "title": "%command.recoverySaveAs.title%",
+        "category": "%command.category%",
+        "icon": "$(save-as)"
+      },
+      {
+        "command": "easyLeftRightDiff.recoveryOpenCurrent",
+        "title": "%command.recoveryOpenCurrent.title%",
+        "category": "%command.category%",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "easyLeftRightDiff.recoveryShowTargetInfo",
+        "title": "%command.recoveryShowTargetInfo.title%",
+        "category": "%command.category%",
+        "icon": "$(info)"
+      },
+      {
+        "command": "easyLeftRightDiff.recoveryDelete",
+        "title": "%command.recoveryDelete.title%",
+        "category": "%command.category%",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "easyLeftRightDiff.retryRestoreFormat",
+        "title": "%command.retryRestoreFormat.title%",
+        "category": "%command.category%",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "easyLeftRightDiff.resetRecoveryStorage",
+        "title": "%command.resetRecoveryStorage.title%",
+        "category": "%command.category%",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "easyLeftRightDiff.openControlMenu",
+        "title": "%command.openControlMenu.title%",
+        "category": "%command.category%",
+        "icon": "$(list-unordered)"
+      },
+      {
+        "command": "easyLeftRightDiff.enableExplorerColors",
+        "title": "%command.enableExplorerColors.title%",
+        "category": "%command.category%",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "easyLeftRightDiff.explorerContext",
+        "label": "%submenu.label%"
+      },
+      {
+        "id": "easyLeftRightDiff.diffContext",
+        "label": "%submenu.label%"
+      },
+      {
+        "id": "easyLeftRightDiff.diffTabContext",
+        "label": "%submenu.label%"
+      },
+      {
+        "id": "easyLeftRightDiff.recoveryContext",
+        "label": "%submenu.recovery.label%"
+      },
+      {
+        "id": "easyLeftRightDiff.fileHistoryContext",
+        "label": "%submenu.label%"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "easyLeftRightDiff.leftRightView",
+          "name": "%view.leftRight.name%",
+          "visibility": "visible"
+        }
+      ]
+    },
+    "menus": {
+      "explorer/context": [
+        {
+          "submenu": "easyLeftRightDiff.explorerContext",
+          "when": "!explorerResourceIsFolder",
+          "group": "navigation@100"
+        }
+      ],
+      "easyLeftRightDiff.explorerContext": [
+        {
+          "command": "easyLeftRightDiff.compareSelectedFiles",
+          "when": "!explorerResourceIsFolder",
+          "group": "1_selection@5"
+        },
+        {
+          "command": "easyLeftRightDiff.setLeft",
+          "when": "!explorerResourceIsFolder && !easyLeftRightDiff.leftSelected",
+          "group": "1_selection@10"
+        },
+        {
+          "command": "easyLeftRightDiff.changeLeft",
+          "when": "!explorerResourceIsFolder && easyLeftRightDiff.leftSelected",
+          "group": "1_selection@10"
+        },
+        {
+          "command": "easyLeftRightDiff.compareWithRight",
+          "when": "!explorerResourceIsFolder && easyLeftRightDiff.leftSelected && !easyLeftRightDiff.rightSelected",
+          "group": "1_selection@20"
+        },
+        {
+          "command": "easyLeftRightDiff.changeRight",
+          "when": "!explorerResourceIsFolder && easyLeftRightDiff.bothSelected",
+          "group": "1_selection@20"
+        },
+        {
+          "command": "easyLeftRightDiff.clearLeft",
+          "when": "easyLeftRightDiff.leftSelected",
+          "group": "2_clear@10"
+        },
+        {
+          "command": "easyLeftRightDiff.clearRight",
+          "when": "easyLeftRightDiff.rightSelected",
+          "group": "2_clear@20"
+        },
+        {
+          "command": "easyLeftRightDiff.clearAll",
+          "when": "easyLeftRightDiff.leftSelected || easyLeftRightDiff.rightSelected",
+          "group": "2_clear@30"
+        },
+        {
+          "command": "easyLeftRightDiff.manageFileRecovery",
+          "when": "!explorerResourceIsFolder",
+          "group": "8_history@10"
+        },
+        {
+          "command": "easyLeftRightDiff.retryRestoreFormat",
+          "when": "!explorerResourceIsFolder && easyLeftRightDiff.hasPendingRestoreFormat",
+          "group": "8_history@20"
+        }
+      ],
+      "editor/context": [
+        {
+          "submenu": "easyLeftRightDiff.diffContext",
+          "when": "isInDiffEditor && easyLeftRightDiff.managedDiffActive",
+          "group": "navigation@100"
+        },
+        {
+          "submenu": "easyLeftRightDiff.recoveryContext",
+          "when": "isInDiffEditor && resourceScheme == easy-left-right-diff-recovery",
+          "group": "navigation@101"
+        },
+        {
+          "submenu": "easyLeftRightDiff.fileHistoryContext",
+          "when": "!isInDiffEditor && resourceScheme == file",
+          "group": "navigation@100"
+        }
+      ],
+      "easyLeftRightDiff.diffContext": [
+        {
+          "command": "easyLeftRightDiff.copyHunkLeftToRight",
+          "when": "easyLeftRightDiff.normalMode",
+          "group": "1_hunk@10"
+        },
+        {
+          "command": "easyLeftRightDiff.copyHunkRightToLeft",
+          "when": "easyLeftRightDiff.normalMode",
+          "group": "1_hunk@20"
+        },
+        {
+          "command": "easyLeftRightDiff.copyFileLeftToRight",
+          "when": "easyLeftRightDiff.normalMode",
+          "group": "2_file@10"
+        },
+        {
+          "command": "easyLeftRightDiff.copyFileRightToLeft",
+          "when": "easyLeftRightDiff.normalMode",
+          "group": "2_file@20"
+        },
+        {
+          "command": "easyLeftRightDiff.undoLastCopy",
+          "when": "easyLeftRightDiff.normalMode && easyLeftRightDiff.hasLastCopy",
+          "group": "3_edit@10"
+        },
+        {
+          "command": "easyLeftRightDiff.saveLeft",
+          "when": "easyLeftRightDiff.normalMode && easyLeftRightDiff.leftDirty",
+          "group": "3_edit@20"
+        },
+        {
+          "command": "easyLeftRightDiff.saveRight",
+          "when": "easyLeftRightDiff.normalMode && easyLeftRightDiff.rightDirty",
+          "group": "3_edit@30"
+        },
+        {
+          "command": "easyLeftRightDiff.showDifferenceSummary",
+          "group": "4_navigation@5"
+        },
+        {
+          "command": "easyLeftRightDiff.nextDifference",
+          "group": "4_navigation@10"
+        },
+        {
+          "command": "easyLeftRightDiff.swapSides",
+          "group": "5_session@5"
+        },
+        {
+          "command": "easyLeftRightDiff.switchToReadonly",
+          "when": "easyLeftRightDiff.normalMode",
+          "group": "5_session@10"
+        },
+        {
+          "command": "easyLeftRightDiff.switchToNormal",
+          "when": "easyLeftRightDiff.readonlyMode",
+          "group": "5_session@10"
+        },
+        {
+          "command": "easyLeftRightDiff.endComparison",
+          "group": "5_session@20"
+        },
+        {
+          "command": "easyLeftRightDiff.revealLeft",
+          "group": "6_location@10"
+        },
+        {
+          "command": "easyLeftRightDiff.revealRight",
+          "group": "6_location@20"
+        },
+        {
+          "command": "easyLeftRightDiff.showInfo",
+          "group": "6_location@30"
+        },
+        {
+          "command": "easyLeftRightDiff.showAddresses",
+          "group": "6_location@40"
+        },
+        {
+          "command": "easyLeftRightDiff.openLeft",
+          "group": "6_location@5"
+        },
+        {
+          "command": "easyLeftRightDiff.openRight",
+          "group": "6_location@6"
+        },
+        {
+          "command": "easyLeftRightDiff.changeLeft",
+          "group": "7_selection@10"
+        },
+        {
+          "command": "easyLeftRightDiff.changeRight",
+          "group": "7_selection@20"
+        },
+        {
+          "command": "easyLeftRightDiff.setLeftLabel",
+          "group": "7_selection@30"
+        },
+        {
+          "command": "easyLeftRightDiff.setRightLabel",
+          "group": "7_selection@40"
+        },
+        {
+          "command": "easyLeftRightDiff.clearAll",
+          "group": "7_selection@50"
+        },
+        {
+          "command": "easyLeftRightDiff.showRecentComparisons",
+          "when": "easyLeftRightDiff.hasRecent",
+          "group": "8_history@10"
+        },
+        {
+          "command": "easyLeftRightDiff.manageRecovery",
+          "when": "easyLeftRightDiff.hasRecovery",
+          "group": "8_history@20"
+        },
+        {
+          "command": "easyLeftRightDiff.showUsageGuide",
+          "group": "9_help@10"
+        },
+        {
+          "command": "easyLeftRightDiff.enableExplorerColors",
+          "group": "9_help@20"
+        },
+        {
+          "command": "easyLeftRightDiff.openControlMenu",
+          "group": "9_help@30"
+        },
+        {
+          "command": "easyLeftRightDiff.retryRestoreFormat",
+          "when": "easyLeftRightDiff.hasPendingRestoreFormat",
+          "group": "8_history@30"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "easyLeftRightDiff.showInfo",
+          "when": "isInDiffEditor && easyLeftRightDiff.managedDiffActive",
+          "group": "navigation@80"
+        },
+        {
+          "command": "easyLeftRightDiff.revealLeft",
+          "when": "isInDiffEditor && easyLeftRightDiff.managedDiffActive",
+          "group": "navigation@90"
+        },
+        {
+          "command": "easyLeftRightDiff.revealRight",
+          "when": "isInDiffEditor && easyLeftRightDiff.managedDiffActive",
+          "group": "navigation@100"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "submenu": "easyLeftRightDiff.diffTabContext",
+          "when": "isInDiffEditor && easyLeftRightDiff.managedDiffActive",
+          "group": "navigation@100"
+        }
+      ],
+      "easyLeftRightDiff.diffTabContext": [
+        {
+          "command": "easyLeftRightDiff.undoLastCopy",
+          "when": "easyLeftRightDiff.normalMode && easyLeftRightDiff.hasLastCopy",
+          "group": "1_edit@10"
+        },
+        {
+          "command": "easyLeftRightDiff.saveLeft",
+          "when": "easyLeftRightDiff.normalMode && easyLeftRightDiff.leftDirty",
+          "group": "1_edit@20"
+        },
+        {
+          "command": "easyLeftRightDiff.saveRight",
+          "when": "easyLeftRightDiff.normalMode && easyLeftRightDiff.rightDirty",
+          "group": "1_edit@30"
+        },
+        {
+          "command": "easyLeftRightDiff.showDifferenceSummary",
+          "group": "2_info@5"
+        },
+        {
+          "command": "easyLeftRightDiff.showInfo",
+          "group": "2_info@10"
+        },
+        {
+          "command": "easyLeftRightDiff.showAddresses",
+          "group": "2_info@15"
+        },
+        {
+          "command": "easyLeftRightDiff.revealLeft",
+          "group": "2_info@20"
+        },
+        {
+          "command": "easyLeftRightDiff.revealRight",
+          "group": "2_info@30"
+        },
+        {
+          "command": "easyLeftRightDiff.swapSides",
+          "group": "3_session@10"
+        },
+        {
+          "command": "easyLeftRightDiff.switchToReadonly",
+          "when": "easyLeftRightDiff.normalMode",
+          "group": "3_session@20"
+        },
+        {
+          "command": "easyLeftRightDiff.switchToNormal",
+          "when": "easyLeftRightDiff.readonlyMode",
+          "group": "3_session@20"
+        },
+        {
+          "command": "easyLeftRightDiff.reopenComparison",
+          "group": "3_session@30"
+        },
+        {
+          "command": "easyLeftRightDiff.endComparison",
+          "group": "3_session@40"
+        },
+        {
+          "command": "easyLeftRightDiff.openLeft",
+          "group": "6_location@5"
+        },
+        {
+          "command": "easyLeftRightDiff.openRight",
+          "group": "6_location@6"
+        },
+        {
+          "command": "easyLeftRightDiff.changeLeft",
+          "group": "7_selection@10"
+        },
+        {
+          "command": "easyLeftRightDiff.changeRight",
+          "group": "7_selection@20"
+        },
+        {
+          "command": "easyLeftRightDiff.setLeftLabel",
+          "group": "7_selection@30"
+        },
+        {
+          "command": "easyLeftRightDiff.setRightLabel",
+          "group": "7_selection@40"
+        },
+        {
+          "command": "easyLeftRightDiff.clearAll",
+          "group": "7_selection@50"
+        },
+        {
+          "command": "easyLeftRightDiff.showRecentComparisons",
+          "when": "easyLeftRightDiff.hasRecent",
+          "group": "8_history@10"
+        },
+        {
+          "command": "easyLeftRightDiff.manageRecovery",
+          "when": "easyLeftRightDiff.hasRecovery",
+          "group": "8_history@20"
+        },
+        {
+          "command": "easyLeftRightDiff.showUsageGuide",
+          "group": "9_help@10"
+        },
+        {
+          "command": "easyLeftRightDiff.enableExplorerColors",
+          "group": "9_help@20"
+        },
+        {
+          "command": "easyLeftRightDiff.openControlMenu",
+          "group": "9_help@30"
+        },
+        {
+          "command": "easyLeftRightDiff.retryRestoreFormat",
+          "when": "easyLeftRightDiff.hasPendingRestoreFormat",
+          "group": "8_history@30"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "easyLeftRightDiff.swapSides",
+          "when": "view == easyLeftRightDiff.leftRightView && easyLeftRightDiff.bothSelected",
+          "group": "navigation@10"
+        },
+        {
+          "command": "easyLeftRightDiff.switchToReadonly",
+          "when": "view == easyLeftRightDiff.leftRightView && easyLeftRightDiff.bothSelected && easyLeftRightDiff.normalMode",
+          "group": "navigation@20"
+        },
+        {
+          "command": "easyLeftRightDiff.switchToNormal",
+          "when": "view == easyLeftRightDiff.leftRightView && easyLeftRightDiff.bothSelected && easyLeftRightDiff.readonlyMode",
+          "group": "navigation@20"
+        },
+        {
+          "command": "easyLeftRightDiff.reopenComparison",
+          "when": "view == easyLeftRightDiff.leftRightView && easyLeftRightDiff.bothSelected && !easyLeftRightDiff.comparisonOpen",
+          "group": "navigation@30"
+        },
+        {
+          "command": "easyLeftRightDiff.endComparison",
+          "when": "view == easyLeftRightDiff.leftRightView && (easyLeftRightDiff.leftSelected || easyLeftRightDiff.rightSelected)",
+          "group": "navigation@40"
+        },
+        {
+          "command": "easyLeftRightDiff.showRecentComparisons",
+          "when": "view == easyLeftRightDiff.leftRightView && easyLeftRightDiff.hasRecent",
+          "group": "navigation@50"
+        },
+        {
+          "command": "easyLeftRightDiff.manageRecovery",
+          "when": "view == easyLeftRightDiff.leftRightView && easyLeftRightDiff.hasRecovery",
+          "group": "navigation@60"
+        },
+        {
+          "command": "easyLeftRightDiff.retryRestoreFormat",
+          "when": "view == easyLeftRightDiff.leftRightView && easyLeftRightDiff.hasPendingRestoreFormat",
+          "group": "navigation@70"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "easyLeftRightDiff.setLeft",
+          "when": "!easyLeftRightDiff.leftSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.compareSelectedFiles"
+        },
+        {
+          "command": "easyLeftRightDiff.compareWithRight",
+          "when": "easyLeftRightDiff.leftSelected && !easyLeftRightDiff.rightSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.changeLeft",
+          "when": "easyLeftRightDiff.leftSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.changeRight",
+          "when": "easyLeftRightDiff.bothSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.clearLeft",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.clearRight",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.clearAll",
+          "when": "easyLeftRightDiff.leftSelected || easyLeftRightDiff.rightSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.setLeftLabel",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.setRightLabel",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.revealLeft",
+          "when": "easyLeftRightDiff.leftSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.revealRight",
+          "when": "easyLeftRightDiff.rightSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.openLeft",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.openRight",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.swapSides",
+          "when": "easyLeftRightDiff.bothSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.switchMode",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.switchToReadonly",
+          "when": "easyLeftRightDiff.bothSelected && easyLeftRightDiff.normalMode"
+        },
+        {
+          "command": "easyLeftRightDiff.switchToNormal",
+          "when": "easyLeftRightDiff.bothSelected && easyLeftRightDiff.readonlyMode"
+        },
+        {
+          "command": "easyLeftRightDiff.showInfo",
+          "when": "easyLeftRightDiff.bothSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.showAddresses",
+          "when": "easyLeftRightDiff.bothSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.reopenComparison",
+          "when": "easyLeftRightDiff.bothSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.endComparison",
+          "when": "easyLeftRightDiff.bothSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.copyHunkLeftToRight",
+          "when": "easyLeftRightDiff.managedDiffActive && easyLeftRightDiff.normalMode"
+        },
+        {
+          "command": "easyLeftRightDiff.copyHunkRightToLeft",
+          "when": "easyLeftRightDiff.managedDiffActive && easyLeftRightDiff.normalMode"
+        },
+        {
+          "command": "easyLeftRightDiff.copyFileLeftToRight",
+          "when": "easyLeftRightDiff.bothSelected && easyLeftRightDiff.normalMode"
+        },
+        {
+          "command": "easyLeftRightDiff.copyFileRightToLeft",
+          "when": "easyLeftRightDiff.bothSelected && easyLeftRightDiff.normalMode"
+        },
+        {
+          "command": "easyLeftRightDiff.undoLastCopy",
+          "when": "easyLeftRightDiff.hasLastCopy"
+        },
+        {
+          "command": "easyLeftRightDiff.saveLeft",
+          "when": "easyLeftRightDiff.bothSelected && easyLeftRightDiff.normalMode && easyLeftRightDiff.leftDirty"
+        },
+        {
+          "command": "easyLeftRightDiff.saveRight",
+          "when": "easyLeftRightDiff.bothSelected && easyLeftRightDiff.normalMode && easyLeftRightDiff.rightDirty"
+        },
+        {
+          "command": "easyLeftRightDiff.nextDifference",
+          "when": "easyLeftRightDiff.managedDiffActive"
+        },
+        {
+          "command": "easyLeftRightDiff.showRecentComparisons"
+        },
+        {
+          "command": "easyLeftRightDiff.manageRecovery"
+        },
+        {
+          "command": "easyLeftRightDiff.showUsageGuide"
+        },
+        {
+          "command": "easyLeftRightDiff.openControlMenu",
+          "when": "easyLeftRightDiff.leftSelected || easyLeftRightDiff.rightSelected"
+        },
+        {
+          "command": "easyLeftRightDiff.enableExplorerColors"
+        },
+        {
+          "command": "easyLeftRightDiff.recoveryExplain",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.recoveryRestore",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.recoverySaveAs",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.recoveryOpenCurrent",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.recoveryDelete",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.manageFileRecovery",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.recoveryShowTargetInfo",
+          "when": "false"
+        },
+        {
+          "command": "easyLeftRightDiff.retryRestoreFormat",
+          "when": "easyLeftRightDiff.hasPendingRestoreFormat"
+        },
+        {
+          "command": "easyLeftRightDiff.resetRecoveryStorage"
+        }
+      ],
+      "easyLeftRightDiff.recoveryContext": [
+        {
+          "command": "easyLeftRightDiff.recoveryExplain",
+          "group": "1_info@10"
+        },
+        {
+          "command": "easyLeftRightDiff.recoveryShowTargetInfo",
+          "group": "1_info@20"
+        },
+        {
+          "command": "easyLeftRightDiff.recoveryRestore",
+          "group": "2_actions@10"
+        },
+        {
+          "command": "easyLeftRightDiff.recoverySaveAs",
+          "group": "2_actions@20"
+        },
+        {
+          "command": "easyLeftRightDiff.recoveryOpenCurrent",
+          "group": "3_open@10"
+        },
+        {
+          "command": "easyLeftRightDiff.manageRecovery",
+          "group": "3_open@20"
+        },
+        {
+          "command": "easyLeftRightDiff.recoveryDelete",
+          "group": "4_delete@10"
+        }
+      ],
+      "easyLeftRightDiff.fileHistoryContext": [
+        {
+          "command": "easyLeftRightDiff.manageFileRecovery",
+          "group": "1_history@10"
+        },
+        {
+          "command": "easyLeftRightDiff.retryRestoreFormat",
+          "when": "easyLeftRightDiff.hasPendingRestoreFormat",
+          "group": "1_history@20"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "%configuration.title%",
+      "properties": {
+        "easyLeftRightDiff.copyConfirmation": {
+          "type": "string",
+          "enum": [
+            "detailed",
+            "compact"
+          ],
+          "default": "compact",
+          "enumDescriptions": [
+            "%configuration.copyConfirmation.enum.detailed%",
+            "%configuration.copyConfirmation.enum.compact%"
+          ],
+          "description": "%configuration.copyConfirmation.description%"
+        },
+        "easyLeftRightDiff.showParentFolderDecorations": {
+          "type": "boolean",
+          "default": true,
+          "description": "%configuration.showParentFolderDecorations.description%"
+        },
+        "easyLeftRightDiff.autoMoveAfterCopy": {
+          "type": "boolean",
+          "default": false,
+          "description": "%configuration.autoMoveAfterCopy.description%"
+        },
+        "easyLeftRightDiff.warnWhenAutoSaveEnabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "%configuration.warnWhenAutoSaveEnabled.description%"
+        },
+        "easyLeftRightDiff.unmanagedWarning": {
+          "type": "string",
+          "enum": [
+            "workspace-once",
+            "always",
+            "never"
+          ],
+          "default": "workspace-once",
+          "enumDescriptions": [
+            "%configuration.unmanagedWarning.enum.workspaceOnce%",
+            "%configuration.unmanagedWarning.enum.always%",
+            "%configuration.unmanagedWarning.enum.never%"
+          ],
+          "description": "%configuration.unmanagedWarning.description%"
+        },
+        "easyLeftRightDiff.autoReveal": {
+          "type": "string",
+          "enum": [
+            "button",
+            "active-side",
+            "off"
+          ],
+          "default": "button",
+          "enumDescriptions": [
+            "%configuration.autoReveal.enum.button%",
+            "%configuration.autoReveal.enum.activeSide%",
+            "%configuration.autoReveal.enum.off%"
+          ],
+          "description": "%configuration.autoReveal.description%"
+        },
+        "easyLeftRightDiff.copyNotification": {
+          "type": "boolean",
+          "default": true,
+          "description": "%configuration.copyNotification.description%"
+        },
+        "easyLeftRightDiff.restorePreviousSelection": {
+          "type": "boolean",
+          "default": false,
+          "description": "%configuration.restorePreviousSelection.description%"
+        },
+        "easyLeftRightDiff.recentComparisonLimit": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 20,
+          "default": 5,
+          "description": "%configuration.recentComparisonLimit.description%"
+        }
+      }
+    },
+    "resourceLabelFormatters": [
+      {
+        "scheme": "easy-left-right-diff-editable",
+        "formatting": {
+          "label": "${path}",
+          "separator": "/",
+          "stripPathStartingSeparator": true,
+          "workspaceSuffix": "左右比較"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "clean": "node ./scripts-clean.js",
+    "compile": "npm run clean && tsc -p ./tsconfig.json",
+    "typecheck": "tsc -p ./tsconfig.json --noEmit && node ./scripts/check-extension-host-source.js",
+    "test:unit": "npm run compile && node --test test/unit/*.test.js test/integration/*.test.js",
+    "test:extension": "npm run compile && node ./test/runTest.js",
+    "test": "npm run test:unit",
+    "package": "npm run compile && npm run package:check && npm run audit:features && npm run audit:metadata && npm run audit:release && npm run audit:release-profile && node ./scripts/ensure-dist-directory.js && vsce package --out dist/easy-left-right-diff-1.0.5.vsix && npm run audit:vsix && npm run audit:publication-blockers",
+    "verify:local": "npm run typecheck && npm run test:unit && npm run package:check && npm run audit:features && npm run audit:metadata && npm run audit:release-profile",
+    "verify:host": "npm run verify:local && npm run test:extension",
+    "verify:all": "npm run verify:host && npm run package",
+    "verify:windows": "node ./scripts/verify-on-windows.js",
+    "verify:npm-launcher": "node ./scripts/check-process-tools.js",
+    "test:extension:external": "node ./scripts/run-extension-host-outside-vscode.js",
+    "package:check": "node ./scripts/check-package-config.js",
+    "audit:release": "node ./scripts/check-release-readiness.js",
+    "verify:rc": "npm run typecheck && npm run test:unit && npm run package:check && npm run audit:features && npm run audit:metadata && npm run audit:release && npm run audit:release-profile && npm run audit:publication-blockers",
+    "audit:features": "node ./scripts/check-feature-completeness.js",
+    "audit:metadata": "node ./scripts/check-release-metadata.js",
+    "verify:lifecycle": "node ./scripts/verify-vsix-lifecycle.js",
+    "audit:vsix": "node ./scripts/check-vsix-package.js",
+    "audit:publication-blockers": "node ./scripts/check-publication-gate.js",
+    "release:gate": "node ./scripts/check-publication-gate.js --strict",
+    "audit:release-profile": "node ./scripts/check-release-profile.js",
+    "release:profile:gate": "node ./scripts/check-release-profile.js --strict",
+    "verify:windows:retry": "node ./scripts/retry-windows-lifecycle.js",
+    "release:final:check": "node ./scripts/apply-final-release.js --check",
+    "release:final:apply": "node ./scripts/apply-final-release.js --apply"
+  },
+  "pricing": "Free",
+  "devDependencies": {
+    "@vscode/test-electron": "3.0.0",
+    "@vscode/vsce": "3.9.2",
+    "typescript": "7.0.2"
+  },
+  "l10n": "./l10n",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kantan-tools/easy-left-right-diff"
+  },
+  "bugs": {
+    "url": "https://github.com/kantan-tools/easy-left-right-diff/issues"
+  },
+  "homepage": "https://github.com/kantan-tools/easy-left-right-diff",
+  "icon": "images/marketplace/icon.png",
+  "galleryBanner": {
+    "color": "#1F5A9D",
+    "theme": "dark"
+  }
+}
