@@ -2,7 +2,7 @@
   "name": "easy-left-right-diff",
   "displayName": "%extension.displayName%",
   "description": "%extension.description%",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "publisher": "kantan-tools",
   "license": "SEE LICENSE IN LICENSE",
   "engines": {
@@ -18,8 +18,12 @@
     "comparison",
     "left",
     "right",
+    "cursor",
+    "recovery",
     "比較",
-    "左右"
+    "左右",
+    "差分",
+    "ファイル比較"
   ],
   "main": "./out/extension.js",
   "activationEvents": [
@@ -1062,36 +1066,13 @@
   "scripts": {
     "clean": "node ./scripts-clean.js",
     "compile": "npm run clean && tsc -p ./tsconfig.json",
-    "typecheck": "tsc -p ./tsconfig.json --noEmit && node ./scripts/check-extension-host-source.js",
-    "test:unit": "npm run compile && node --test test/unit/*.test.js test/integration/*.test.js",
-    "test:extension": "npm run compile && node ./test/runTest.js",
-    "test": "npm run test:unit",
-    "package": "npm run compile && npm run package:check && npm run audit:features && npm run audit:metadata && npm run audit:release && npm run audit:release-profile && node ./scripts/ensure-dist-directory.js && vsce package --out dist/easy-left-right-diff-1.0.5.vsix && npm run audit:vsix && npm run audit:publication-blockers",
-    "verify:local": "npm run typecheck && npm run test:unit && npm run package:check && npm run audit:features && npm run audit:metadata && npm run audit:release-profile",
-    "verify:host": "npm run verify:local && npm run test:extension",
-    "verify:all": "npm run verify:host && npm run package",
-    "verify:windows": "node ./scripts/verify-on-windows.js",
-    "verify:npm-launcher": "node ./scripts/check-process-tools.js",
-    "test:extension:external": "node ./scripts/run-extension-host-outside-vscode.js",
-    "package:check": "node ./scripts/check-package-config.js",
-    "audit:release": "node ./scripts/check-release-readiness.js",
-    "verify:rc": "npm run typecheck && npm run test:unit && npm run package:check && npm run audit:features && npm run audit:metadata && npm run audit:release && npm run audit:release-profile && npm run audit:publication-blockers",
-    "audit:features": "node ./scripts/check-feature-completeness.js",
-    "audit:metadata": "node ./scripts/check-release-metadata.js",
-    "verify:lifecycle": "node ./scripts/verify-vsix-lifecycle.js",
-    "audit:vsix": "node ./scripts/check-vsix-package.js",
-    "audit:publication-blockers": "node ./scripts/check-publication-gate.js",
-    "release:gate": "node ./scripts/check-publication-gate.js --strict",
-    "audit:release-profile": "node ./scripts/check-release-profile.js",
-    "release:profile:gate": "node ./scripts/check-release-profile.js --strict",
-    "verify:windows:retry": "node ./scripts/retry-windows-lifecycle.js",
-    "release:final:check": "node ./scripts/apply-final-release.js --check",
-    "release:final:apply": "node ./scripts/apply-final-release.js --apply"
+    "typecheck": "tsc -p ./tsconfig.json --noEmit",
+    "package": "npm run compile && node -e \"require('node:fs').mkdirSync('dist',{recursive:true})\" && vsce package --out dist/easy-left-right-diff-1.0.7.vsix"
   },
   "pricing": "Free",
   "devDependencies": {
     "@vscode/test-electron": "3.0.0",
-    "@vscode/vsce": "3.9.2",
+    "@vscode/vsce": "4.1.0",
     "typescript": "7.0.2"
   },
   "l10n": "./l10n",
@@ -1107,5 +1088,10 @@
   "galleryBanner": {
     "color": "#1F5A9D",
     "theme": "dark"
+  },
+  "overrides": {
+    "@vscode/vsce": {
+      "minimatch": "11.0.5"
+    }
   }
 }

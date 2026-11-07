@@ -1,6 +1,6 @@
 {
   "extension.displayName": "Easy Left Right Diff",
-  "extension.description": "Compare files in the standard VS Code diff editor while keeping L (left), R (right), file locations, copy direction, and the file being changed clear.",
+  "extension.description": "Compare two files clearly as L/Left and R/Right, copy differences in either direction, and keep local recovery history in VS Code/Cursor.",
   "command.category": "Easy Left Right Diff",
   "submenu.label": "Easy Left Right Diff",
   "view.leftRight.name": "Easy Left Right Diff",
