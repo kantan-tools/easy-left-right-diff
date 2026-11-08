@@ -22,11 +22,13 @@
 
 最近の比較はVS Code／Cursorのワークスペース状態へ保存します。復元履歴は拡張機能用ローカルストレージへ保存します。
 
-復元履歴は暗号化されません。秘密情報を含むファイルを扱った場合、その内容もローカルの復元履歴に含まれる可能性があります。
+復元履歴は暗号化されません。秘密情報を含むファイルを扱った場合、その内容もローカルの復元履歴に含まれる可能性があります。Git・VS Codeの変更履歴は収集・保存しません。
 
 保持上限は、同じファイル3件、全体30件、合計60MBです。上限を超えた古い情報は自動削除されます。利用者は管理画面から1件または全件を削除できます。
 
 対象ファイルの削除・置換を検出した復元履歴は、別ファイルへ誤って再接続せず「対象ファイルなし」として扱います。その履歴は別ファイルとして保存するか、削除できます。
+
+開発時の依存パッケージ取得やVS Codeテスト版の取得は、拡張機能を利用する製品動作とは別です。
 
 ## English
 
@@ -50,8 +52,10 @@ Product features do not use network requests, telemetry, AI services, or account
 
 Recent comparisons are stored in VS Code/Cursor workspace state. Recovery data is stored in extension-local storage.
 
-Recovery data is not encrypted. Files containing secrets may therefore leave those contents in local recovery data.
+Recovery data is not encrypted. Files containing secrets may therefore leave those contents in local recovery data. The extension does not collect or store Git or VS Code change histories.
 
 Limits are three records per file, thirty records total, and 60 MB total. Older records beyond these limits are automatically removed. Users can delete one or all records from the management UI.
 
 If the target file is deleted or replaced, the corresponding recovery history is kept detached instead of being reconnected to a different file. Detached entries can be saved as another file or deleted.
+
+Downloading development dependencies or a VS Code test build is separate from normal extension operation.
