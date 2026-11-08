@@ -1,6 +1,6 @@
 {
   "extension.displayName": "かんたん左右ファイル比較",
-  "extension.description": "VS Code標準差分画面で、L・左側とR・右側の実ファイル、場所、コピー方向、書き換わるファイルを見失わずに比較する拡張機能。",
+  "extension.description": "2つのファイルをL・左側／R・右側として分かりやすく比較し、差分コピーや復元履歴を安全に使えるVS Code／Cursor拡張機能。",
   "command.category": "かんたん左右比較",
   "submenu.label": "かんたん左右比較",
   "view.leftRight.name": "かんたん左右比較",
