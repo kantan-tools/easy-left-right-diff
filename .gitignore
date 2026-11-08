@@ -1,0 +1,12 @@
+node_modules/
+out/
+dist/*.vsix
+.vscode-test/
+.npm-cache/
+verification/*.json
+verification/*.log
+verification/*.txt
+test/fixtures/unicode/左側.txt
+test/fixtures/unicode/右側.txt
+
+.vscode-test-runtime/
